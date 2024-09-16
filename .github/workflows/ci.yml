@@ -23,9 +23,12 @@ jobs:
       - name: Tests ausführen
         run: npm test
 
-      - name: Docker Build
+      - name: Docker Build and Push
         uses: docker/build-push-action@v3
         with:
           context: .
-          push: false
-          tags: ci-demo-website:latest
+          push: true
+          tags: apalmer73/ci-demo-website:latest
+          login: true
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
