@@ -1,0 +1,23 @@
+{
+  "name": "ci-demo-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderpalmer/ci-demo-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexanderpalmer/ci-demo-website/issues"
+  },
+  "homepage": "https://github.com/alexanderpalmer/ci-demo-website#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
