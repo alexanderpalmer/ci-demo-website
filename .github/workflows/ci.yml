@@ -24,11 +24,13 @@ jobs:
         run: npm test
 
       - name: Docker Build and Push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: apalmer73/ci-demo-website:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ci-demo-website:latest
+          platform: linux/amd64
           login: true
+          registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
