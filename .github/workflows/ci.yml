@@ -23,14 +23,14 @@ jobs:
       - name: Tests ausführen
         run: npm test
 
-      - name: Docker Build and Push
+      - name: Bei Docker Hub anmelden
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Image bauen
         uses: docker/build-push-action@v4
         with:
-          context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ci-demo-website:latest
-          platform: linux/amd64
-          login: true
-          registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/ci-demo-website:latest
